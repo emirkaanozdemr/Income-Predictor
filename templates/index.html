@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Income Predictor</h1>
+        <form action="/predict" method="post">
+            <label for="experience">Experience (years):</label>
+            <input type="text" id="experience" name="experience" required><br>
+
+            <label for="exam">Exam Score:</label>
+            <input type="text" id="exam" name="exam" required><br>
+
+            <label for="interview">Interview Score:</label>
+            <input type="text" id="interview" name="interview" required><br>
+
+            <input type="submit" value="Predict">
+        </form>
+        {% if pred %}
+            <div class="prediction">
+                <h2>{{ pred }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
